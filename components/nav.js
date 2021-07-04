@@ -1,11 +1,10 @@
-import Link from 'next/link'
-import { useRouter } from 'next/router'
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 export default function Nav() {
-  const router = useRouter()
+  const router = useRouter();
   return (
-    <React.Fragment>
-
+    <>
       <nav className="d-flex flex-row flex-md-column position-fixed sidebar bg-dark-2 h-100">
         <div className="d-flex flex-row flex-md-column h-100">
           <Link href="/">
@@ -14,14 +13,25 @@ export default function Nav() {
             </div>
           </Link>
           <Link href="/countries">
-            <div className={"d-flex s-menu justify-content-center align-items-center px-3 px-md-0 py-2 py-md-3 "
-              + (router.pathname === "/countries" || router.pathname === "/countries/[id]" ? "active" : "")}>
+            <div
+              className={
+                "d-flex s-menu justify-content-center align-items-center px-3 px-md-0 py-2 py-md-3 " +
+                (router.pathname === "/countries" ||
+                router.pathname === "/countries/[id]"
+                  ? "active"
+                  : "")
+              }
+            >
               <i className="fas fa-globe text-white"></i>
             </div>
           </Link>
           <Link href="/info">
-            <div className={"d-flex s-menu justify-content-center align-items-center px-3 px-md-0 py-2 py-md-3 "
-              + (router.pathname === "/info" ? "active" : "")}>
+            <div
+              className={
+                "d-flex s-menu justify-content-center align-items-center px-3 px-md-0 py-2 py-md-3 " +
+                (router.pathname === "/info" ? "active" : "")
+              }
+            >
               <i className="fas fa-info-circle text-white"></i>
             </div>
           </Link>
@@ -29,27 +39,57 @@ export default function Nav() {
       </nav>
 
       <style jsx>{`
-      .logo{cursor: pointer}
-      .logo i{font-size:24px}
-      .sidebar{width:65px}
-      .s-menu{position: relative;cursor: pointer}
-      .s-menu.active{background: #ffffff52}
-      .fs-15{font-size: 15px}
-      .bg-dark-2{background-color: #000}
-      @media (max-width: 768px){
-       .logo{border-right: 0!important;}
-       .sidebar{position: relative!important;min-height: inherit!important;height: inherit!important;width: initial}
-       .s-menu.active:before{height: 30px;width: 30px;top: 13px;left: 9px}
-      }
+        .logo {
+          cursor: pointer;
+        }
+        .logo i {
+          font-size: 24px;
+        }
+        .sidebar {
+          width: 65px;
+        }
+        .s-menu {
+          position: relative;
+          cursor: pointer;
+        }
+        .s-menu.active {
+          background: #ffffff52;
+        }
+        .fs-15 {
+          font-size: 15px;
+        }
+        .bg-dark-2 {
+          background-color: #000;
+        }
+        @media (max-width: 768px) {
+          .logo {
+            border-right: 0 !important;
+          }
+          .sidebar {
+            position: relative !important;
+            min-height: inherit !important;
+            height: inherit !important;
+            width: initial;
+          }
+          .s-menu.active:before {
+            height: 30px;
+            width: 30px;
+            top: 13px;
+            left: 9px;
+          }
+        }
       `}</style>
 
       <style jsx global>{`
-      .page-container{margin-left: 65px;}
-      @media (max-width: 768px){
-       .page-container{margin-left: 0px;}
-      }
+        .page-container {
+          margin-left: 65px;
+        }
+        @media (max-width: 768px) {
+          .page-container {
+            margin-left: 0px;
+          }
+        }
       `}</style>
-
-    </React.Fragment>
-  )
+    </>
+  );
 }
